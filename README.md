@@ -27,11 +27,14 @@ val res2: dev.travisbrown.sized.SizedVector[Int, 10] = SizedVector(1, 2, 3, 4, 5
 All ordinary collections methods are available and return the underlying unsized type:
 
 ```scala
-scala> xs.toList
-val res4: List[Int] = List(1, 2, 3, 4, 5)
+scala> xs.toVector
+val res3: Vector[Int] = Vector(1, 2, 3, 4, 5)
 
 scala> xs.take(100)
-val res5: Vector[Int] = Vector(1, 2, 3, 4, 5)
+val res4: Vector[Int] = Vector(1, 2, 3, 4, 5)
+
+scala> xs.map(_ * 1000)
+val res5: Vector[Int] = Vector(1000, 2000, 3000, 4000, 5000)
 ```
 
 Accessing out-of-bounds elements fails at compile time:
