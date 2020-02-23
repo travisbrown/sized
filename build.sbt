@@ -36,3 +36,36 @@ def testDependencies(isDotty: Boolean): Seq[ModuleID] =
 
 libraryDependencies ++= macroDependencies(isDotty.value, scalaVersion.value)
 libraryDependencies ++= testDependencies(isDotty.value)
+
+releaseCrossBuild := true
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
+releaseVcsSign := true
+homepage := Some(url("https://github.com/travisbrown/sized"))
+licenses := Seq("Apache 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
+publishMavenStyle := true
+publishArtifact in Test := false
+pomIncludeRepository := { _ => false }
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots".at(nexus + "content/repositories/snapshots"))
+  else
+    Some("releases".at(nexus + "service/local/staging/deploy/maven2"))
+}
+autoAPIMappings := true
+apiURL := Some(url("https://travisbrown.github.io/sized/api/"))
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/travisbrown/sized"),
+    "scm:git:git@github.com:travisbrown/sized.git"
+  )
+)
+pomExtra := (
+  <developers>
+    <developer>
+      <id>travisbrown</id>
+      <name>Travis Brown</name>
+      <url>https://twitter.com/travisbrown</url>
+    </developer>
+  </developers>
+)
