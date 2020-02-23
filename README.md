@@ -1,4 +1,4 @@
-# Sized collections for Scala 2.13
+# Sized collections for Scala 2.13 and Dotty
 
 [![Build status](https://img.shields.io/travis/travisbrown/sized/master.svg)](https://travis-ci.org/travisbrown/sized)
 [![Coverage status](https://img.shields.io/codecov/c/github/travisbrown/sized/master.svg)](https://codecov.io/github/travisbrown/sized)
